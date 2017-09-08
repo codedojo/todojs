@@ -1,5 +1,5 @@
 const model = new Model();
-const controller = new Controller();
-const view = new View(model, controller);
+const presenter = new Presenter();
+const view = new View(model);
 
 controller.initialize(model, view);
