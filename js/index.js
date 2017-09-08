@@ -1,5 +1,5 @@
-new App(
-    document.querySelector('#app'),
-    new TodoForm(document.querySelector('#todo-form')),
-    new TodoList(document.querySelector('#todo-list'))
-);
+const model = new Model();
+const controller = new Controller();
+const view = new View(model, controller);
+
+controller.initialize(model, view);
