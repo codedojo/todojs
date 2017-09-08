@@ -1,0 +1,5 @@
+class ViewModel {
+    constructor(model) {
+        
+    }
+}

@@ -1,5 +1,3 @@
 const model = new Model();
-const presenter = new Presenter();
-const view = new View(model);
-
-controller.initialize(model, view);
+const viewModel = new ViewModel(model);
+const view = new View(viewModel);
