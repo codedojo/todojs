@@ -1,12 +1,13 @@
 import { EventEmitter, createElement } from './helpers';
 
-class View extends EventEmitter {
-    constructor() {
+export default class View extends EventEmitter {
+    constructor(element) {
         super();
 
-        this.form = document.getElementById('todo-form');
-        this.input = document.getElementById('add-input');
-        this.list = document.getElementById('todo-list');
+        this.element = element;
+        this.form = element.querySelector('#todo-form');
+        this.input = element.querySelector('#add-input');
+        this.list = element.querySelector('#todo-list');
 
         this.form.addEventListener('submit', this.handleAdd.bind(this));
     }
@@ -118,5 +119,3 @@ class View extends EventEmitter {
         this.list.removeChild(listItem);
     }
 }
-
-export default View;

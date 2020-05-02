@@ -39,14 +39,14 @@ class EventEmitter {
     }
 }
 
-function save(data) {
+function save(key, data) {
     const string = JSON.stringify(data);
     
-    localStorage.setItem('todos', string);
+    localStorage.setItem(key, string);
 }
 
-function load() {
-    const string = localStorage.getItem('todos');
+function load(key) {
+    const string = localStorage.getItem(key);
     const data = JSON.parse(string);
 
     return data;

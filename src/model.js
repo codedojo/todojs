@@ -1,19 +1,19 @@
 import { EventEmitter } from './helpers';
 
-class Model extends EventEmitter {
-    constructor(items = []) {
+export default class Model extends EventEmitter {
+    constructor(state = []) {
         super();
 
-        this.items = items;
+        this.state = state;
     }
 
     getItem(id) {
-        return this.items.find(item => item.id == id);
+        return this.state.find(item => item.id == id);
     }
 
     addItem(item) {
-        this.items.push(item);
-        this.emit('change', this.items);
+        this.state.push(item);
+        this.emit('change', this.state);
         return item;
     }
 
@@ -22,19 +22,17 @@ class Model extends EventEmitter {
 
         Object.keys(data).forEach(prop => item[prop] = data[prop]);
 
-        this.emit('change', this.items);
+        this.emit('change', this.state);
         
         return item;
     }
 
     removeItem(id) {
-        const index = this.items.findIndex(item => item.id == id);
+        const index = this.state.findIndex(item => item.id == id);
         
         if (index > -1) {
-            this.items.splice(index, 1);
-            this.emit('change', this.items);
+            this.state.splice(index, 1);
+            this.emit('change', this.state);
         }
     }
 }
-
-export default Model;

@@ -1,4 +1,4 @@
-class Controller {
+export default class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
@@ -34,5 +34,3 @@ class Controller {
         this.view.removeItem(id);
     }
 }
-
-export default Controller;
